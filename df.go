@@ -52,7 +52,7 @@ func split_data(a string) [100][]string {
 	split := strings.Split(string(a), "\n")
 	var split2 [100][]string
 	singleSpacePattern := regexp.MustCompile(`\s+`)
-	for i := 1; i < 15; i++ {
+	for i := 1; i < (len(split)-1); i++ {
 		str := split[i]
 		single_str := singleSpacePattern.ReplaceAllString(str, " ")
 		split2[i] = strings.Split(single_str, " ")
