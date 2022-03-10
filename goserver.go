@@ -25,14 +25,10 @@ func main() {
 	cmd1 := "uname"
 	cmd2 := "-r"
 	kernel_v, _ = exec.Command(cmd1, cmd2).Output()
-	//fmt.Println(string(kernel_v))
 	cmd3 := "cat"
 	cmd4 := "/proc/cpuinfo"
 	cpuinfo, _ := exec.Command(cmd3, cmd4).Output()
 	cpu = strings.Split(string(cpuinfo), "\n")
-	//fmt.Println(cpu[12])
-	//fmt.Println(cpu[4])
-
 	http.HandleFunc("/", HomePageHandler)
 	fmt.Printf("Starting application on port %v\n", portNumber)
 	http.ListenAndServe(portNumber, nil)
